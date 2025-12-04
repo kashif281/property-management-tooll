@@ -1,0 +1,114 @@
+{
+  "entities": [
+    {
+      "name": "Property",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "address",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "rent_amount",
+          "type": "money",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "Tenant",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "name",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "email",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": true,
+          "isUnique": true
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "LeaseAgreement",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "start_date",
+          "type": "date",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "end_date",
+          "type": "date",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    },
+    {
+      "name": "MaintenanceRequest",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "description",
+          "type": "text",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        },
+        {
+          "name": "status",
+          "type": "varchar",
+          "nullable": false,
+          "isIndex": false,
+          "isUnique": false
+        }
+      ],
+      "indexes": [],
+      "uniques": []
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Property",
+      "to": "Tenant",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Property",
+      "to": "LeaseAgreement",
+      "type": "OneToOne"
+    },
+    {
+      "from": "Property",
+      "to": "MaintenanceRequest",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
